@@ -1,4 +1,5 @@
 install:
+	cargo build --release
 	mkdir -p /usr/local/include/libffout
 	cp target/release/libffout.pc /usr/local/lib/pkgconfig/
 	cp target/release/libffout.dylib /usr/local/lib/
