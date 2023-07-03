@@ -21,7 +21,7 @@ Name: libffout
 Description: Demo ffmpeg output protocol library
 Version: 0.1.0
 Libs: -L${libdir} -lffout
-Cflags: -I${includedir}/libffout
+Cflags: -I${includedir}/libffout -I/Users/englishm/git/ffmpeg
 "#;
 
     let mut pc_file = File::create("target/release/libffout.pc")?;
