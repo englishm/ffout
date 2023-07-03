@@ -9,7 +9,7 @@ fn main() -> Result<()> {
 
     cbindgen::generate(crate_dir)
         .expect("Unable to generate bindings")
-        .write_to_file("target/release/libffout.h");
+        .write_to_file("target/release/ffout.h");
 
     let pc_file_contents = r#"
 prefix=/usr/local
@@ -17,14 +17,14 @@ exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
 
-Name: ffout
+Name: libffout
 Description: Demo ffmpeg output protocol library
 Version: 0.1.0
 Libs: -L${libdir} -lffout
-Cflags: -I${includedir}/ffout
+Cflags: -I${includedir}/libffout
 "#;
 
-    let mut pc_file = File::create("target/release/ffout.pc")?;
+    let mut pc_file = File::create("target/release/libffout.pc")?;
     pc_file.write_all(pc_file_contents.as_bytes())?;
     Ok(())
 }
